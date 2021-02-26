@@ -1,0 +1,14 @@
+# https://medium.com/@shoaib_masood/metallb-network-loadbalancer-minikube-335d846dfdbe
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.168.49.15-192.168.49.25
