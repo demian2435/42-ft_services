@@ -13,7 +13,7 @@ RUN	apk add --no-cache php7-json
 RUN	apk add --no-cache php7-session
 ADD https://wordpress.org/latest.tar.gz .
 RUN tar -xvf latest.tar.gz
-#RUN rm -f latest.tar.gz
+RUN mv wordpress /www
 COPY wp-config.php /www/ 
 EXPOSE 5050
 CMD ./setup.sh
