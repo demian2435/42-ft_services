@@ -1,3 +1,11 @@
+ftps d2435:d2435
+
 ssh d2435:d2435
-wp d2435:d2435
+
 myadmin admin:admin
+
+wordpress http://192.168.49.15:5050/wp-login.php
+d2435:d2435
+gino:gino
+mario:mario
+pippo:pippoS
