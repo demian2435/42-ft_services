@@ -16,3 +16,4 @@ kubectl delete -f srcs/nginx.yaml
 kubectl delete -f srcs/phpmyadmin.yaml
 kubectl delete -f srcs/wordpress.yaml
 kubectl delete -f srcs/ftps.yaml
+kubectl delete -f srcs/influxdb.yaml
