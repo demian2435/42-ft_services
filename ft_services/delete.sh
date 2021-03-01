@@ -7,7 +7,7 @@
 #kubectl delete -n default service phpmyadmin
 #kubectl delete -n default service mysql
 #kubectl delete --all pods --namespace=default
-#docker rm $(docker ps -a -q)
+#docker rm $(docker ps -a -f status=exited -f status=created -q)
 #docker rmi $(docker images -a -q)
 
 kubectl delete -f srcs/metallb.yaml 
@@ -15,3 +15,4 @@ kubectl delete -f srcs/mysql.yaml
 kubectl delete -f srcs/nginx.yaml
 kubectl delete -f srcs/phpmyadmin.yaml
 kubectl delete -f srcs/wordpress.yaml
+kubectl delete -f srcs/ftps.yaml
