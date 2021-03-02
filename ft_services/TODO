@@ -30,8 +30,8 @@ OK -- p 80 443 22
 OK -- porta 22 SSH
 OK -- port 80 http rediretto verso 443 (utilizzando 301)
 OK -- port 443 https
--rediretto /wordpress (utilizzando 307)
--rediretto /phpMyAdmin (utilizzando inverse proxy)
+ -- rediretto /wordpress (utilizzando 307)
+ -- rediretto /phpMyAdmin (utilizzando inverse proxy)
 
 +++ftps "LoadBalancer":
 OK -- port 21
