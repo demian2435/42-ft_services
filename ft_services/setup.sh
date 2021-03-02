@@ -1,6 +1,6 @@
-#minikube stop
-#minikube delete --all --purge
-#minikube --driver=docker start
+minikube stop
+minikube delete --all --purge
+minikube --driver=docker start
 minikube addons enable metrics-server
 minikube addons enable dashboard
 minikube addons enable metallb

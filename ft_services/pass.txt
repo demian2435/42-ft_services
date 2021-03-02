@@ -2,7 +2,7 @@ ftps d2435:d2435
 
 ssh d2435:d2435
 
-myadmin d2435:d2435
+phpmyadmin d2435:d2435
 
 wordpress http://192.168.49.15:5050/wp-login.php
 d2435:d2435
