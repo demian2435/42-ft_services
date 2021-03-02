@@ -1,6 +1,5 @@
 FROM alpine:latest
 COPY ./setup.sh .
-COPY ./config.sql .
 COPY ./wordpress.sql .
 RUN apk update
 RUN apk add --no-cache mysql
