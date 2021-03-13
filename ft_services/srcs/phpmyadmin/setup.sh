@@ -1,1 +1,2 @@
-/usr/bin/php -S 0.0.0.0:80 -t /www/
+php-fpm7
+nginx -g 'daemon off;'
