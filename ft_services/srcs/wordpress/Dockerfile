@@ -11,9 +11,11 @@ RUN	apk add --no-cache php7-curl
 RUN	apk add --no-cache php7-mbstring
 RUN	apk add --no-cache php7-json
 RUN	apk add --no-cache php7-session
-ADD https://wordpress.org/latest.tar.gz .
-RUN tar -xvf latest.tar.gz
-RUN mv wordpress /www
-COPY wp-config.php /www/ 
+RUN	apk add --no-cache nginx
+COPY wordpress /www
+COPY wp-config.php /www/
+#VOGLIO MORIRE 2 LA VENDETTA
+RUN mkdir -p /run/nginx
+COPY nginx.conf /etc/nginx/
 EXPOSE 5050
 CMD ./setup.sh
