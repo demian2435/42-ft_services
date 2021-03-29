@@ -9,7 +9,7 @@ Hash: SHA512
   "signedByOrgName": "Grafana Labs",
   "plugin": "input",
   "version": "1.0.0",
-  "time": 1616765794867,
+  "time": 1616766281253,
   "keyId": "7e4d0c6a708866e7",
   "files": {
     "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
@@ -25,9 +25,9 @@ Hash: SHA512
 Version: OpenPGP.js v4.10.1
 Comment: https://openpgpjs.org
 
-wqEEARMKAAYFAmBd42MACgkQfk0ManCIZueviAIIvlx1i04ibUVlu579YP8V
-n1QODmtIVlAr9Bc1i06PNnrdzdRrC3N0cGrLFguYLbkyCSx9FAPL6XEQOIim
-YmNKvvsCCQEaofn3stYkrWqe8I4ipabT/my2f/ikKkTMXYuXCAi5dZzAkUoh
-tm4/SvoixoWGh06DEH5vyF+Z8g71jw33YcGACw==
-=AtwK
+wqAEARMKAAYFAmBd5UkACgkQfk0ManCIZudToAIHQs2DdqPySIjN9e9m+T2n
+VkP9zlfcfeWa/B4RQ700gccxhwbVtDKJZkOW0fOV/dC9f7U5hgrqZop308mC
+1c1DzM4CB1YEQIzTN2+Xcuvuo6Qiv6opTyhkzpQc2bJtlTEuetnktIe5ttZr
+KH9en/wtVjLYfH+b0z/ynGZZ4VBUPWYy75b4
+=DgP3
 -----END PGP SIGNATURE-----

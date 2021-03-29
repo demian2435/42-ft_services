@@ -1,6 +1,8 @@
 FROM alpine:latest
 COPY setup.sh ./
 RUN apk update
-COPY grafana-7.5.1 ./
+RUN mkdir grafana
+COPY grafana-7.5.1 ./grafana
+RUN apk add --no-cache libc6-compat
 EXPOSE 3000
-CMD bash setup.sh
+CMD ./setup.sh
