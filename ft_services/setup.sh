@@ -7,7 +7,7 @@
 #kubectl apply -f srcs/metallb.yaml
 eval $(minikube docker-env)
 
-docker build -t nginx-img srcs/nginx/. && kubectl apply -f srcs/nginx.yaml
+#docker build -t nginx-img srcs/nginx/. && kubectl apply -f srcs/nginx.yaml
 
 #docker build -t mysql-img srcs/mysql/. && kubectl apply -f srcs/mysql.yaml
 
@@ -19,6 +19,7 @@ docker build -t nginx-img srcs/nginx/. && kubectl apply -f srcs/nginx.yaml
 
 #docker build -t influxdb-img srcs/influxdb/. && kubectl apply -f srcs/influxdb.yaml
 
+docker build -t grafana-img srcs/grafana/. && kubectl apply -f srcs/grafana.yaml
 
 #SHELL
 #kubectl exec --stdin --tty mysql -- sh
