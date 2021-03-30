@@ -37,10 +37,10 @@ OK -- rediretto /phpMyAdmin (utilizzando inverse proxy)
 OK -- port 21
 
 +++Grafana "LoadBalancer":
--p 3000
--usa influxdb
--monitora tutti i containers
--una dashboard per servizio
+OK -- p 3000
+OK -- usa influxdb
+OK -- monitora tutti i containers
+OK -- una dashboard per servizio
 
 +++influxdb "ClusterIP":
 OK -- i dati persistono dopo l'eliminazione

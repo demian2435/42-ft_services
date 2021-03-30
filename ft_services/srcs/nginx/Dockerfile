@@ -1,6 +1,8 @@
 FROM alpine:latest
 COPY setup.sh ./
 RUN apk update
+
+
 RUN apk add --no-cache nginx
 RUN apk add --no-cache openssh
 RUN apk add --no-cache openssl
@@ -12,5 +14,9 @@ RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/ssl/d2
 RUN ssh-keygen -A
 RUN adduser -D d2435
 RUN echo "d2435:d2435" | chpasswd
+
+#COMPATIBILITA MEDIOEVO
+RUN apk add --no-cache libc6-compat
+
 EXPOSE 22 80 443
 CMD ./setup.sh

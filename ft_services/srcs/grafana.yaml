@@ -4,25 +4,23 @@ metadata:
   name: grafana
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
-  labels:
-    app: grafana
 spec:
   selector:
     app: grafana
   ports:
-  - name: http
-    protocol: TCP
+  - protocol: TCP
     port: 3000
     targetPort: 3000
   type: LoadBalancer
+
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grafana
-  labels:
-    app: grafana
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: grafana
@@ -35,3 +33,50 @@ spec:
       - name: grafana
         image: grafana-img
         imagePullPolicy: Never
+        volumeMounts:
+        - mountPath: /grafana/provisioning/datasources/datasource.yaml
+          name: grafana-config
+          readOnly: true
+          subPath: datasource.yaml
+        - mountPath: /grafana/provisioning/dashboards/dashboard.yaml
+          name: grafana-config
+          readOnly: true
+          subPath: dashboard.yaml
+        - mountPath: /var/lib/grafana/dashboards/nginx-dashboard.json
+          name: grafana-config
+          readOnly: true
+          subPath: nginx-dashboard.json
+        - mountPath: /var/lib/grafana/dashboards/mysql-dashboard.json
+          name: grafana-config
+          readOnly: true
+          subPath: mysql-dashboard.json
+        - mountPath: /var/lib/grafana/dashboards/phpmyadmin-dashboard.json
+          name: grafana-config
+          readOnly: true
+          subPath: phpmyadmin-dashboard.json
+        - mountPath: /var/lib/grafana/dashboards/wordpress-dashboard.json
+          name: grafana-config
+          readOnly: true
+          subPath: wordpress-dashboard.json
+        - mountPath: /var/lib/grafana/dashboards/influxdb-dashboard.json
+          name: grafana-config
+          readOnly: true
+          subPath: influxdb-dashboard.json
+        - mountPath: /var/lib/grafana/dashboards/telegraf-dashboard.json
+          name: grafana-config
+          readOnly: true
+          subPath: telegraf-dashboard.json
+        - mountPath: /var/lib/grafana/dashboards/ftps-dashboard.json
+          name: grafana-config
+          readOnly: true
+          subPath: ftps-dashboard.json
+        - mountPath: /var/lib/grafana/dashboards/grafana-dashboard.json
+          name: grafana-config
+          readOnly: true
+          subPath: grafana-dashboard.json
+        ports:
+        - containerPort: 3000
+      volumes:
+      - name: grafana-config
+        configMap:
+          name: grafana-config
