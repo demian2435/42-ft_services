@@ -1,5 +1,6 @@
 FROM alpine:latest
 COPY setup.sh ./
+COPY controllo_php.sh ./
 RUN apk update
 RUN apk add --no-cache nginx
 RUN	apk add --no-cache php7

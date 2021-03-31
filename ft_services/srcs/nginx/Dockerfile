@@ -1,7 +1,7 @@
 FROM alpine:latest
 COPY setup.sh ./
 RUN apk update
-
+COPY controllo_ssh.sh ./
 
 RUN apk add --no-cache nginx
 RUN apk add --no-cache openssh
