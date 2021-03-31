@@ -5,9 +5,8 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: manual
   capacity:
-    storage: 1Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
@@ -18,18 +17,19 @@ kind: PersistentVolumeClaim
 metadata:
   name: mysql-pv-claim
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: mysql
@@ -44,8 +44,7 @@ spec:
         image: mysql-img
         imagePullPolicy: Never
         ports:
-        - name: http
-          containerPort: 3306
+        - containerPort: 3306
         volumeMounts:
         - name: mysql-data
           mountPath: /var/lib/mysql
@@ -61,7 +60,6 @@ metadata:
 spec:
   ports:
   - port: 3306
-    targetPort: http
   selector:
     app: mysql
   type: ClusterIP

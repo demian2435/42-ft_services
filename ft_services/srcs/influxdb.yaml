@@ -6,9 +6,8 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: manual
   capacity:
-    storage: 1Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
@@ -19,18 +18,19 @@ kind: PersistentVolumeClaim
 metadata:
   name: influxdb-pv-claim
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: influxdb
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: influxdb
@@ -45,8 +45,7 @@ spec:
         image: influxdb-img
         imagePullPolicy: Never
         ports:
-        - name: http
-          containerPort: 8086
+        - containerPort: 8086
         volumeMounts:
         - name: influxdb-data
           mountPath: /var/lib/influxdb
@@ -62,7 +61,6 @@ metadata:
 spec:
   ports:
   - port: 8086
-    targetPort: http
   selector:
     app: influxdb
   clusterIP: 10.99.99.100
